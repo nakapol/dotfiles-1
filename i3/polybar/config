@@ -47,7 +47,7 @@ font-3 = Material Icons:style=Regular:size=11;1
 
 modules-left = i3
 modules-center = date
-modules-right = wireless-network volume xbacklight battery temperature powermenu
+modules-right = wireless-network volume xbacklight battery powermenu
 
 ; tray-position = right
 ; tray-padding = 2
@@ -198,27 +198,38 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
+
 [module/wireless-network]
 type = internal/network
-interface = wlo1
+interface = enp3s0
 interval = 3.0
 ping-interval = 10
 
-format-connected = <ramp-signal> <label-connected>
-label-connected = %essid%
-label-disconnected = wifi not connected
+label-connected =  connected
+label-disconnected = ethernet not connected
 label-disconnected-foreground = #66
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-animation-packetloss-0 = 
-animation-packetloss-0-foreground = #ffa64c
-animation-packetloss-1 = 
-animation-packetloss-1-foreground = ${bar/top.foreground}
-animation-packetloss-framerate = 500
+; [module/wireless-network]
+; type = internal/network
+; interface = wlo1
+; interval = 3.0
+; ping-interval = 10
+
+; format-connected = <ramp-signal> <label-connected>
+; label-connected = %essid%
+; label-disconnected = wifi not connected
+; label-disconnected-foreground = #66
+
+; ramp-signal-0 = 
+; ramp-signal-1 = 
+; ramp-signal-2 = 
+; ramp-signal-3 = 
+; ramp-signal-4 = 
+; animation-packetloss-0 = 
+; animation-packetloss-0-foreground = #ffa64c
+; animation-packetloss-1 = 
+; animation-packetloss-1-foreground = ${bar/top.foreground}
+; animation-packetloss-framerate = 500
 
 [module/date]
 type = internal/date

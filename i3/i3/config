@@ -149,8 +149,8 @@ bindsym $mod+Shift+r restart
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Audio controls
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym $mod+F11 exec amixer -q set Master 5%- unmute
+bindsym $mod+F12 exec amixer -q set Master 5%+ unmute
 bindsym XF86AudioMute exec amixer -q sset Master playback toggle
 
 # Screen brightness controls
@@ -287,7 +287,7 @@ gaps outer 3
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-# smart_gaps one
+smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -382,7 +382,7 @@ mode "move" {
 # exec xrandr --addmode HDMI1 1920x1080_60.02
 
 # Project room
-exec_always xrandr --fb 3840x1080 --output HDMI1 --mode 1600x900 --scale-from 1920x1080 --panning 1920x1080+1920+0
+# exec_always xrandr --fb 1920x1080 --output DVI-0 --mode 1600x900 --scale-from 1920x1080 --panning 1920x1080
 # exec xrandr --newmode "1920x1080" 118.25  1600 1696 1856 2112  900 903 908 934 -hsync +vsync
 # exec xrandr --addmode HDMI1 1920x1080
 
