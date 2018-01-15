@@ -32,7 +32,7 @@ Change global npm path per user
 <details>
 <summary>Vim</summary>
 
-#### Normal mode
+## Normal mode
 Commands | Descriptions
 --- | ---
 `:cd <path>` | Open path */path*
@@ -41,6 +41,7 @@ Commands | Descriptions
 <kbd>e</kbd> | Go to end of word *
 <kbd>b</kbd> | Go back word
 <kbd>Ctrl</kbd><kbd>w</kbd><kbd>w</kbd> | Alternative navigate vim split panels
+<kbd>Alt</kbd><kbd>w</kbd> | Switch pane toggle
 <kbd>,</kbd><kbd>.</kbd> | Set path working directory
 <kbd>Tab</kbd> or <kbd>,</kbd><kbd>x</kbd> | Next buffer navigate (Normal mode)
 <kbd>Shift</kbd><kbd>Tab</kbd> or <kbd>,</kbd><kbd>z</kbd> | previous buffer navigate
@@ -63,6 +64,9 @@ Commands | Descriptions
 <kbd>,</kbd><kbd>g</kbd><kbd>b</kbd> | git blame
 <kbd>,</kbd><kbd>g</kbd><kbd>d</kbd> | git diff
 <kbd>,</kbd><kbd>g</kbd><kbd>r</kbd> | git remove
+<kbd>,</kbd><kbd>g</kbd><kbd>o</kbd> | git open current file in github 
+<kbd>,</kbd><kbd>g</kbd><kbd>v</kbd> | git view tree (all)
+<kbd>,</kbd><kbd>g</kbd><kbd>v</kbd><kbd>f</kbd> | git view tree (file)
 <kbd>,</kbd><kbd>s</kbd><kbd>o</kbd> | Open Session
 <kbd>,</kbd><kbd>s</kbd><kbd>s</kbd> | Save Session
 <kbd>,</kbd><kbd>s</kbd><kbd>d</kbd> | Delete Session
@@ -138,6 +142,7 @@ Commands | Descriptions
 --- | ---
 <kbd>Alt</kbd> + <kbd>Tab</kbd> | Prefix for command
 <kbd>Ctrl</kbd> + <kbd>h</kbd><kbd>j</kbd><kbd>k</kbd><kbd>l</kbd>| Navigate via split panels
+<kbd>Alt</kbd> + <kbd>w</kbd> | Switch pane toggle
 <kbd>Prefix</kbd> + <kbd>v</kbd> | Split vertical
 <kbd>Prefix</kbd> + <kbd>b</kbd> | Split horizontal
 <kbd>Prefix</kbd> + <kbd>c</kbd> | Create a new window

@@ -2,13 +2,13 @@
 "" Vim-PLug core
 "*****************************************************************************
 if has('vim_starting')
-  set nocompatible               " Be iMproved
+  set nocompatible
 endif
 
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 
 let g:vim_bootstrap_langs = "html,javascript,php,python"
-let g:vim_bootstrap_editor = "nvim"				" nvim or vim
+let g:vim_bootstrap_editor = "nvim"
 
 if !filereadable(vimplug_exists)
   if !executable("curl")
@@ -60,6 +60,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ap/vim-buftabline'
 Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'haya14busa/incsearch.vim'
+Plug 'junegunn/gv.vim'
+Plug 'wellle/targets.vim'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -89,23 +91,24 @@ Plug 'dracula/vim'
 
 " html
 "" HTML Bundle
-Plug 'hail2u/vim-css3-syntax'
 Plug 'gorodinskiy/vim-coloresque'
-Plug 'tpope/vim-haml'
+Plug 'hail2u/vim-css3-syntax'
 Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-haml'
 
 " javascript
 "" Javascript Bundle
-Plug 'othree/yajs.vim'
-Plug 'othree/es.next.syntax.vim'
-Plug 'mxw/vim-jsx'
-Plug 'leshill/vim-json'
-Plug 'epilande/vim-react-snippets'
-Plug 'moll/vim-node'
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
-Plug 'ternjs/tern_for_vim'
+Plug 'epilande/vim-react-snippets'
+Plug 'leshill/vim-json'
+Plug 'moll/vim-node'
+Plug 'mxw/vim-jsx'
+Plug 'othree/es.next.syntax.vim'
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/yajs.vim'
 Plug 'styled-components/vim-styled-components'
+Plug 'ternjs/tern_for_vim'
+Plug 'leafgarland/typescript-vim'
 
 " php
 "" PHP Bundle
@@ -114,11 +117,12 @@ Plug 'arnaud-lb/vim-php-namespace'
 " python
 "" Python Bundle
 Plug 'davidhalter/jedi'
-Plug 'zchee/deoplete-jedi'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+Plug 'zchee/deoplete-jedi'
 
 " markdown
 " Markdown Bundle
+Plug 'plasticboy/vim-markdown'
 Plug 'suan/vim-instant-markdown'
 
 "*****************************************************************************
@@ -176,7 +180,7 @@ set showcmd
 " session management
 let g:session_directory = "~/.config/nvim/session"
 let g:session_autoload = "no"
-let g:session_autosave = "no"
+let g:session_autosave = "yes"
 let g:session_command_aliases = 1
 
 " set python3 as an interpreter
@@ -203,6 +207,10 @@ if !exists('g:not_finish_vimplug')
     hi BufTabLineCurrent ctermfg=16 ctermbg=141 cterm=bold
     hi BufTabLineFill ctermfg=NONE ctermbg=233
     hi BufTabLineHidden ctermfg=15 ctermbg=233
+    ""TabLine
+    hi TabLineFill ctermfg=233 ctermbg=233
+    hi TabLine ctermfg=15 ctermbg=236 cterm=NONE
+    hi TabLineSel ctermfg=16 ctermbg=141
 endif
 
 set mousemodel=popup
@@ -364,12 +372,14 @@ noremap <leader>v :<C-u>vsplit<CR>
 "" Git
 noremap <leader>ga :Gwrite<CR>
 noremap <leader>gc :Gcommit<CR>
-noremap <leader>gsh :Gpush<CR>
+noremap <leader>gsh :Git push<CR>
 noremap <leader>gll :Gpull<CR>
 noremap <leader>gs :Gstatus<CR>
 noremap <leader>gb :Gblame<CR>
 noremap <leader>gd :Gvdiff<CR>
 noremap <leader>gr :Gremove<CR>
+noremap <leader>gv :GV<CR>
+noremap <leader>gvf :GV!<CR>
 
 " session management
 nnoremap <leader>so :OpenSession<Space>
@@ -460,7 +470,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 "" Open current line on GitHub
-nnoremap <Leader>o :.Gbrowse<CR>
+nnoremap <Leader>go :.Gbrowse<CR>
 
 "" Emmet
 let g:user_emmet_expandabbr_key='<C-e>'
@@ -522,7 +532,7 @@ let python_highlight_all = 1
 " deoplete (neovim asynchronous completion)
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_refresh_always = 0
+let g:deoplete#enable_refresh_always = 1
 let b:deoplete_ignore_sources = ['buffer']
 let g:deoplete#sources#ternjs#case_insensitive = 1
 let g:deoplete#sources#ternjs#docs = 1
@@ -558,6 +568,7 @@ let g:ale_fix_on_save = 1
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " BufTabline
+let g:buftabline_show = 1
 let g:buftabline_indicators = 1
 
 " Auto pairs
